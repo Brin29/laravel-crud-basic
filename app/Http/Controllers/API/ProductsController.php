@@ -51,9 +51,13 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateProductsRequest $request, Products $products)
     {
-        //
+        $products->update($request->all());
+        return (new ProductsResource($products))
+        ->additional(["mensaje"=> "Producto Actualizado de forma correcta"])
+        ->response()
+        ->setStatusCode("202");
     }
 
     /**
@@ -62,8 +66,10 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Products $products)
     {
-        //
+        $products->delete();
+        return (new ProductsResource($products))
+        ->additional(["mensaje" => "Producto Eliminado de forma correcta"]);
     }
 }
