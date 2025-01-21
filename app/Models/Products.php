@@ -15,6 +15,7 @@ class Products extends Model
     "discount",
     "is_active",
     "colors", 
+    "image",
     "sizes"];
 
     protected $casts = [
@@ -24,6 +25,7 @@ class Products extends Model
 
     protected $attributes = [
         "description" => "Without description",
+        "image" => "https://www.edelar.com.ar/static/theme/images/sin_imagen.jpg",
         "price" => 0,
         "discount" => 0,
         "is_active" => true,

@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string("name", 255);
             $table->string("description", 500)->default("Without description");
+            $table->string("image")->default("https://www.edelar.com.ar/static/theme/images/sin_imagen.jpg");
             $table->integer("price")->default(0);
             $table->boolean("is_active")->default(true);
             $table->integer("discount")->default(0);

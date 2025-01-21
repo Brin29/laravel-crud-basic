@@ -28,7 +28,8 @@ class UpdateProductsRequest extends FormRequest
             "price" => "required",
             "description" => "required",
             "colors" => "required",
-            "sizes" => "required"
+            "sizes" => "required",
+            "image" => "required"
         ];
     }
 }
