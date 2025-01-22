@@ -29,7 +29,6 @@ class UpdateProductsRequest extends FormRequest
             "description" => "required",
             "colors" => "required",
             "sizes" => "required",
-            "image" => "required"
         ];
     }
 }

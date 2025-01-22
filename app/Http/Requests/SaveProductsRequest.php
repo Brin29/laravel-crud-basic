@@ -26,6 +26,7 @@ class SaveProductsRequest extends FormRequest
         return [
             "name" => "required",
             "price" => "required",
+            "category" => "required",
             "description" => "required",
             "colors" => "required",
             "sizes" => "required",

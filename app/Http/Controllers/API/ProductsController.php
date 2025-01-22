@@ -55,7 +55,8 @@ class ProductsController extends Controller
     {
         $products->update($request->all());
         return (new ProductsResource($products))
-        ->additional(["mensaje"=> "Producto Actualizado de forma correcta"]);
+        ->response()
+        ->setStatusCode(202);
     }
 
     /**

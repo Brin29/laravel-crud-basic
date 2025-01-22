@@ -14,6 +14,7 @@ class Products extends Model
     "price",
     "discount",
     "is_active",
+    "category",
     "colors", 
     "image",
     "sizes"];
@@ -27,6 +28,7 @@ class Products extends Model
         "description" => "Without description",
         "image" => "https://www.edelar.com.ar/static/theme/images/sin_imagen.jpg",
         "price" => 0,
+        "category" => "Camisa",
         "discount" => 0,
         "is_active" => true,
         "colors" => "[]",
