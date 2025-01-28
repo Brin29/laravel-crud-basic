@@ -24,8 +24,7 @@ class ProductsResource extends JsonResource
             "Activo" => $this->is_active,
             "Descuento" => $this->discount,
             "Colores" => $this->colors,
-            "Tallas" => $this->sizes,
-            "Usuarios" => $this->user_id
+            "Tallas" => $this->sizes
         ];
     }
 }
