@@ -4,9 +4,9 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Users;
+use App\Models\Pedido;
 
-class UsersController extends Controller
+class PedidosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        // return Users::with(["product"])->get();
-        return Users::all();
+        return Pedido::all();
     }
 
     /**
@@ -27,8 +26,8 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        $users = Users::create($request->all());
-        return response()->json($users, 201);
+        $pedidos = Pedido::create($request->all());
+        return response()->json($pedidos, 201);
     }
 
     /**
@@ -39,7 +38,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        return Users::findOrFail($id);
+        return Pedido::findOrFail($id);
     }
 
     /**
@@ -51,9 +50,9 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = Users::findOrFail($id);
-        $user->update($request->all());
-        return response()->json($user);
+        $pedidos = Pedido::findOrFail($id);
+        $pedidos->update($request->all());
+        return response()->json($pedidos);
     }
 
     /**
@@ -64,7 +63,7 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        Users::destroy($id);
-        return response()->json(null, 204); 
+        Pedido::destroy($id);
+        return response()->json(null, 204);
     }
 }

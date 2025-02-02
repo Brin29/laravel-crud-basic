@@ -35,7 +35,7 @@ class Products extends Model
         "sizes" => "[]"
     ];
 
-    public function user(){
-        return $this->hasMany(Users::class);
-    }
+    // public function user(){
+    //     return $this->hasMany(Users::class);
+    // }
 }

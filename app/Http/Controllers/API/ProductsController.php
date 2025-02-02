@@ -5,9 +5,6 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Products;
-use App\Http\Requests\SaveProductsRequest;
-use App\Http\Requests\UpdateProductsRequest;
-use App\Http\Resources\ProductsResource;
 
 class ProductsController extends Controller
 {
@@ -29,8 +26,8 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        return (new ProductsResource(Products::create($request->all())))
-        ->additional(["mensaje"=> "Producto Registrado de forma correcta"]);
+        $product = Products::create($request->all());
+        return response()->json($product, 201);
     }
 
     /**
@@ -39,9 +36,9 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Products $products)
+    public function show($id)
     {
-        return new ProductsResource($products);
+        return Products::findOrFail($id);
     }
 
     /**
@@ -51,12 +48,11 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProductsRequest $request, Products $products)
+    public function update(Request $request, $id)
     {
-        $products->update($request->all());
-        return (new ProductsResource($products))
-        ->response()
-        ->setStatusCode(202);
+        $product = Products::findOrFail($id);
+        $product->update($request->all());
+        return response()->json($product);
     }
 
     /**
@@ -65,10 +61,9 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Products $products)
+    public function destroy($id)
     {
-        $products->delete();
-        return (new ProductsResource($products))
-        ->additional(["mensaje" => "Producto Eliminado de forma correcta"]);
+        Products::destroy($id);
+        return response()->json(null, 204);
     }
 }

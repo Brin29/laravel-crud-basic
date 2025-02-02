@@ -20,11 +20,11 @@ class CreateUsersTable extends Migration
             // $table->timestamp('email_verified_at')->nullable();
             // $table->string('password');
             // $table->rememberToken();
-            $table->unsignedBigInteger("product_id")->nullable();
-            $table->foreign("product_id")
-                ->references("id")
-                ->on("products")
-                ->onDelete("set null");
+            // $table->unsignedBigInteger("product_id")->nullable();
+            // $table->foreign("product_id")
+            //     ->references("id")
+            //     ->on("products")
+            //     ->onDelete("set null");
             $table->timestamps();
         });
     }
