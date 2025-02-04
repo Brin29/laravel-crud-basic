@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Direction;
+use App\Models\Users;
 
 class DirectionSeeder extends Seeder
 {
@@ -15,11 +16,13 @@ class DirectionSeeder extends Seeder
     public function run()
     {
 
-        $user = Users::first();
+        $users = Users::all();
 
-        Direction::create([
-            "user_id" => $user->id,
-            "street" => "Breiner"
-        ]);
+        $users->each(function ($user) {
+            Direction::create([
+                "street" => "Breiner",
+                "user_id" => $user->id,
+            ]);
+        });
     }
 }

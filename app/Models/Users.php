@@ -9,9 +9,9 @@ class Users extends Model
 {
     use HasFactory;
 
-protected $fillable = ["name"/*, "product_id"*/];
+protected $fillable = ["name"];
 
-    public function product(){
+    public function directions(){
         return $this->hasMany(Direction::class);
     }
 }

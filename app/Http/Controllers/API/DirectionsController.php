@@ -15,7 +15,8 @@ class DirectionsController extends Controller
      */
     public function index()
     {
-        Direction::with(["user"])->get();
+        $direction = Direction::with("user")->get();
+        return response()->json($direction);
     }
 
     /**
@@ -38,7 +39,9 @@ class DirectionsController extends Controller
      */
     public function show($id)
     {
-        return Direction::findOrFail($id);
+        $direction = Direction::with("user")->findOrFail($id);
+        
+        return response()->json($direction);
     }
 
     /**

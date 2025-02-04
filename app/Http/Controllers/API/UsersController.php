@@ -15,7 +15,6 @@ class UsersController extends Controller
      */
     public function index()
     {
-        // return Users::with(["product"])->get();
         return Users::all();
     }
 

@@ -9,7 +9,7 @@ class Direction extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["street"];
+    protected $fillable = ["street", "user_id"];
 
     public function user(){
         return $this->belongsTo(Users::class);
