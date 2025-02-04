@@ -4,9 +4,9 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Products;
+use App\Models\Direction;
 
-class ProductsController extends Controller
+class DirectionsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        return Products::all();
+        Direction::with(["user"])->get();
     }
 
     /**
@@ -26,8 +26,8 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        $product = Products::create($request->all());
-        return response()->json($product, 201);
+        $Direction = Direction::create($request->all());
+        return response()->json($Direction, 201);
     }
 
     /**
@@ -38,7 +38,7 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        return Products::findOrFail($id);
+        return Direction::findOrFail($id);
     }
 
     /**
@@ -50,9 +50,9 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $product = Products::findOrFail($id);
-        $product->update($request->all());
-        return response()->json($product);
+        $Direction = Direction::findOrFail($id);
+        $Direction->update($request->all());
+        return response()->json($Direction);
     }
 
     /**
@@ -63,7 +63,7 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
-        Products::destroy($id);
+        Direction::destroy($id);
         return response()->json(null, 204);
     }
 }

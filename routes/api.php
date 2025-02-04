@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\ProductsController;
 use App\Http\Controllers\API\UsersController;
 use App\Http\Controllers\API\PedidosController;
+use App\Http\Controllers\API\DirectionsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +23,6 @@ use App\Http\Controllers\API\PedidosController;
 // });
 
 Route::apiResource("products", ProductsController::class);
-Route::apiResource("users", UsersController::class);
+Route::apiResource("usuario", UsersController::class);
 Route::apiResource("pedidos", PedidosController::class);
+Route::apiResource("direcciones", DirectionsController::class);
