@@ -35,4 +35,7 @@ class Products extends Model
         "sizes" => "[]"
     ];
 
+    public function users(){
+        return $this->belongsToMany(Users::Class);
+    }
 }

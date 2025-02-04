@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Pedido;
+use App\Models\Users;
+use App\Models\Products;
 
 class PedidoSeeder extends Seeder
 {
@@ -14,8 +16,12 @@ class PedidoSeeder extends Seeder
      */
     public function run()
     {
+
         Pedido::create([
             "name" => "Breiner"
         ]);
+
+        $users = Users::all();
+        $products = Products::all();
     }
 }
